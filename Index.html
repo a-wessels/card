@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <title>My card, you cad!</title>
+  <style>
+    .dark-theme {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .email-icon,
+    .linkedin-icon,
+    .github-icon {
+      cursor: pointer;
+    }
+
+    button.btn-floating img {
+      align-self: auto;
+      padding-right: 5%;
+      padding-top: 4%;
+      border-radius: 50%;
+      width: 115%;
+    }
+
+    .fixed-action-btn.absolute.top {
+      position: absolute;
+      top: 0;
+      right: 10px;
+    }
+
+    #nav-ul {
+      display: inline-block;
+      max-width: 260px
+    }
+
+    #nav-li {
+      width: 60px;
+      height: 60px;
+      margin-top: -1px;
+    }
+
+    #nav-a {
+      background-color: grey;
+    }
+
+    #card {
+      max-width: 38%;
+      padding-bottom: 25vh;
+    }
+  </style>
+
+</head>
+<body>
+  <header class="navbar-fixed">
+    <nav class="nav-wrapper dark-theme">
+      <div class="right">
+        <div class="fixed-action-btn absolute top">
+          <button class="btn-floating pulse waves-effect white" id="fab">
+            <img src="assets/aw_logo.png" alt="Links">
+          </button>
+          <ul id="nav-ul">
+            <li id="nav-li">
+              <a href="#" id="nav-a" class="btn-floating" onclick="copyEmail()">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </li>
+            <li id="nav-li">
+              <a href="https://www.linkedin.com/in/aydan-wessels-8b431188/" id="nav-a" target="_blank"
+                class="btn-floating linkedin-icon">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+            <li id="nav-li">
+              <a href="https://github.com/a-wessels/a-wessels" id="nav-a" target="_blank" class="btn-floating">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="center-align dark-theme">
+    <picture>
+      <source media="(max-width: 600px)" srcset="assets/card-sm.png">
+      <img id="card" class="responsive-img" src="assets/card-lg.png" alt="Business Card">
+    </picture>
+  </section>
+  <section class="center-align dark-theme">
+    <i class="material-icons large white-text" style="padding: 20px;">arrow_downward</i>
+    <p class="white-text" style="font-size: 16px;">Scroll down for more</p>
+  </section>
+  <section>
+    <iframe src="assets/resume.pdf" width="100%" height="800px"></iframe>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function copyEmail() {
+      const email = "aydanwessels@gmail.com";
+      navigator.clipboard.writeText(email);
+      M.toast({ html: 'Email copied to clipboard!' });
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.fixed-action-btn');
+      var instances = M.FloatingActionButton.init(elems, {
+        direction: 'left',
+        hoverEnabled: false
+      });
+    });
+  </script>
+</body>
+</html>
